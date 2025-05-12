@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { type } from 'os';
 
 /**
  * Read environment variables from file.
@@ -29,7 +30,8 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
      baseURL: "https://restful-booker.herokuapp.com",
      extraHTTPHeaders:{
-      Accept: "application/json"
+      Accept: "application/json",
+      "Content-type":"application/json" //as there are two words in the 2nd header content type we used double quote, accept doesn't have two quotes,so used one
      },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
