@@ -31,8 +31,10 @@ export default defineConfig({
      baseURL: "https://restful-booker.herokuapp.com",
      extraHTTPHeaders:{
       Accept: "application/json",
-      "Content-type":"application/json" //as there are two words in the 2nd header content type we used double quote, accept doesn't have two quotes,so used one
-     },
+      "Content-type":"application/json" ,//as there are two words in the 2nd header content type we used double quote, accept doesn't have two quotes,so used one
+    
+    Authorization:"Basic YWRtaW46cGFzc3dvcmQxMjM="
+  },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
