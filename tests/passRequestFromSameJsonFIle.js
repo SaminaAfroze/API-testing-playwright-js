@@ -1,4 +1,4 @@
-import {test,request, expect}from '@playwright/test';
+import {test, expect}from '@playwright/test';
 import Apijson1 from "../node_modules/testdata/apidata.json";
 
 test("sending request body from the json file-post method", async({request})=>{
@@ -16,7 +16,8 @@ test("sending request body from the json file-post method", async({request})=>{
 test("sending request body from the json file-put method", async({request})=>{
     
     const resPut1= await request.put("https://restful-booker.herokuapp.com/booking/1",{data:Apijson1.putdata})
+     const jsonResPut = await resPut1.json();
 
-    const jsonResPut= await resPut1.json()
-    expect (jsonResPut.additionalneeds).toEqual(Apijson1.putdata.additionalneeds);
+    expect(jsonResPut.booking.additionalneeds).toEqual(Apijson1.putdata.additionalneeds);
+
 })
